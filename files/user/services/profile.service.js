@@ -15,6 +15,7 @@ const {
   ProfileFailure,
   ProfileSuccess,
 } = require("../messages/profile.messages")
+const { generateImage } = require("../../../utils/openai")
 
 class ProfileService {
   static async profileImage(payload, locals) {
@@ -100,6 +101,20 @@ class ProfileService {
       success: true,
       msg: UserSuccess.FETCH,
       data: user,
+    }
+  }
+
+  static async generateImageService(payload) {
+    const { prompt, size } = payload
+
+    const result = await generateImage(prompt, size)
+
+    if (!result) return { success: false, msg: `unable to fetch image` }
+
+    return {
+      success: true,
+      msg: UserSuccess.FETCH,
+      data: result,
     }
   }
 }
