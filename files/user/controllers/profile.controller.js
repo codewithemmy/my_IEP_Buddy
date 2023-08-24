@@ -75,6 +75,15 @@ const generateImageController = async (req, res, next) => {
 
   return responseHandler(res, SUCCESS, data)
 }
+const IEPGoalController = async (req, res, next) => {
+  const [error, data] = await manageAsyncOps(ProfileService.IEPGoalService())
+
+  if (error) return next(error)
+
+  if (!data.success) return next(new CustomError(data.msg, BAD_REQUEST, data))
+
+  return responseHandler(res, SUCCESS, data)
+}
 
 module.exports = {
   profileImageController,
@@ -83,4 +92,5 @@ module.exports = {
   changePasswordController,
   getUserProfileController,
   generateImageController,
+  IEPGoalController,
 }

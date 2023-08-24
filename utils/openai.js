@@ -31,4 +31,37 @@ const generateImage = async (prompt, size) => {
   }
 }
 
-module.exports = { generateImage }
+const completionIEP = async () => {
+  const prompt = `determine an IEP for a student trying to get admission to a college. Return response in the following 
+  JSON parsable format:
+  {
+    "goal": "answer",
+  "IEP": "answer"
+  }
+`
+  try {
+    const completion = await openai.completions.create({
+      model: "text-davinci-003",
+      prompt: prompt,
+      max_tokens: 1024,
+      temperature: 1,
+    })
+
+    const parsableJson = completion.choices[0].text
+    const jsonResponse = JSON.parse(parsableJson)
+
+    console.log(jsonResponse)
+  } catch (error) {
+    if (error.completion) {
+      console.log(error.completion.status)
+      console.log(error.completion.data)
+    } else {
+      console.log(error.message)
+    }
+    res
+      .status(400)
+      .json({ success: false, error: `The image could not be generated` })
+  }
+}
+
+module.exports = { generateImage, completionIEP }
