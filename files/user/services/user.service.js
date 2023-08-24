@@ -13,6 +13,7 @@ const { UserRepository } = require("../user.repository")
 const { LIMIT, SKIP, SORT } = require("../../../constants")
 const { sendMailNotification } = require("../../../utils/email")
 
+//create UserService Class
 class UserService {
   static async createUser(payload) {
     const { fullName, email } = payload
