@@ -60,4 +60,5 @@ const completionIEP = async () => {
   }
 }
 
+//export
 module.exports = { generateImage, completionIEP }
