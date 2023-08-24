@@ -15,7 +15,7 @@ const {
   ProfileFailure,
   ProfileSuccess,
 } = require("../messages/profile.messages")
-const { generateImage, completionIEP } = require("../../../utils/openai")
+// const { generateImage, completionIEP } = require("../../../utils/openai")
 
 class ProfileService {
   static async profileImage(payload, locals) {
@@ -104,31 +104,31 @@ class ProfileService {
     }
   }
 
-  static async generateImageService(payload) {
-    const { prompt, size } = payload
+  // static async generateImageService(payload) {
+  //   const { prompt, size } = payload
 
-    const result = await generateImage(prompt, size)
+  //   const result = await generateImage(prompt, size)
 
-    if (!result) return { success: false, msg: `unable to fetch image` }
+  //   if (!result) return { success: false, msg: `unable to fetch image` }
 
-    return {
-      success: true,
-      msg: UserSuccess.FETCH,
-      data: result,
-    }
-  }
+  //   return {
+  //     success: true,
+  //     msg: UserSuccess.FETCH,
+  //     data: result,
+  //   }
+  // }
 
-  static async IEPGoalService() {
-    const result = await completionIEP()
+  // static async IEPGoalService() {
+  //   const result = await completionIEP()
 
-    if (!result) return { success: false, msg: `unable to fetch image` }
+  //   if (!result) return { success: false, msg: `unable to fetch image` }
 
-    return {
-      success: true,
-      msg: UserSuccess.FETCH,
-      data: result
-    }
-  }
+  //   return {
+  //     success: true,
+  //     msg: UserSuccess.FETCH,
+  //     data: result
+  //   }
+  // }
 }
 
 module.exports = { ProfileService }

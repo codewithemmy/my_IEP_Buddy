@@ -64,26 +64,27 @@ const getUserProfileController = async (req, res, next) => {
   return responseHandler(res, SUCCESS, data)
 }
 
-const generateImageController = async (req, res, next) => {
-  const [error, data] = await manageAsyncOps(
-    ProfileService.generateImageService(req.body)
-  )
+// const generateImageController = async (req, res, next) => {
+//   const [error, data] = await manageAsyncOps(
+//     ProfileService.generateImageService(req.body)
+//   )
 
-  if (error) return next(error)
+//   if (error) return next(error)
 
-  if (!data.success) return next(new CustomError(data.msg, BAD_REQUEST, data))
+//   if (!data.success) return next(new CustomError(data.msg, BAD_REQUEST, data))
 
-  return responseHandler(res, SUCCESS, data)
-}
-const IEPGoalController = async (req, res, next) => {
-  const [error, data] = await manageAsyncOps(ProfileService.IEPGoalService())
+//   return responseHandler(res, SUCCESS, data)
+// }
 
-  if (error) return next(error)
+// const IEPGoalController = async (req, res, next) => {
+//   const [error, data] = await manageAsyncOps(ProfileService.IEPGoalService())
 
-  if (!data.success) return next(new CustomError(data.msg, BAD_REQUEST, data))
+//   if (error) return next(error)
 
-  return responseHandler(res, SUCCESS, data)
-}
+//   if (!data.success) return next(new CustomError(data.msg, BAD_REQUEST, data))
+
+//   return responseHandler(res, SUCCESS, data)
+// }
 
 module.exports = {
   profileImageController,
@@ -91,6 +92,6 @@ module.exports = {
   updateUserController,
   changePasswordController,
   getUserProfileController,
-  generateImageController,
-  IEPGoalController,
+  // generateImageController,
+  // IEPGoalController,
 }
