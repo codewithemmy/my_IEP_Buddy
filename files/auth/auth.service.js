@@ -10,8 +10,6 @@ const { sendSms } = require("../../utils/sms")
 const { AuthFailure, AuthSuccess } = require("./auth.messages")
 const { UserRepository } = require("../user/user.repository")
 
-// const { AdminRepository } = require("../admin/admin.repository")
-
 class AuthService {
   static async verifyUser(body) {
     const { otp } = body

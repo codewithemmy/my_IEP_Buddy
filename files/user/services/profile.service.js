@@ -126,7 +126,7 @@ class ProfileService {
     return {
       success: true,
       msg: UserSuccess.FETCH,
-      // data: result,
+      data: result
     }
   }
 }

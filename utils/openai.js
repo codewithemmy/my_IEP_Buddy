@@ -48,9 +48,7 @@ const completionIEP = async () => {
     })
 
     const parsableJson = completion.choices[0].text
-    const jsonResponse = JSON.parse(parsableJson)
-
-    console.log(jsonResponse)
+    return (jsonResponse = JSON.parse(parsableJson))
   } catch (error) {
     if (error.completion) {
       console.log(error.completion.status)
@@ -58,9 +56,7 @@ const completionIEP = async () => {
     } else {
       console.log(error.message)
     }
-    res
-      .status(400)
-      .json({ success: false, error: `The image could not be generated` })
+    res.status(400).json({ success: false, error: `Unable to generate IEP` })
   }
 }
 

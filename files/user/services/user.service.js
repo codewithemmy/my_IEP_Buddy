@@ -12,8 +12,6 @@ const { UserSuccess, UserFailure } = require("../user.messages")
 const { UserRepository } = require("../user.repository")
 const { LIMIT, SKIP, SORT } = require("../../../constants")
 const { sendMailNotification } = require("../../../utils/email")
-const { AdminRepository } = require("../../admin/admin.repository")
-const { authMessages } = require("../../admin/messages/auth.messages")
 
 class UserService {
   static async createUser(payload) {

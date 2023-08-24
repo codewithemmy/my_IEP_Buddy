@@ -1,9 +1,5 @@
-const {
-  adminSignUpController,
-  adminLogin,
-} = require("../admin/admin.controller")
+
 const { checkSchema } = require("express-validator")
-const { createAdmin } = require("../../validations/admin/admin")
 const { validate } = require("../../validations/validate")
 const {
   verifyUserController,
