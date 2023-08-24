@@ -8,15 +8,12 @@ const {
   createUserController,
   userLoginController,
 } = require("../user/controllers/user.controller")
-const {
-  generateImageController,
-  IEPGoalController,
-} = require("./controllers/profile.controller")
+const { IEPGoalController } = require("./controllers/profile.controller")
 
 //routes
 userRoute.route("/").post(createUserController)
 userRoute.route("/login").post(userLoginController)
 // userRoute.route("/generate").post(generateImageController)
-// userRoute.route("/completion").post(IEPGoalController)
+userRoute.route("/completion").post(IEPGoalController)
 
 module.exports = userRoute

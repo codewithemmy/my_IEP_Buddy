@@ -1,8 +1,8 @@
-// const { OpenAI } = require("openai")
+const { OpenAI } = require("openai")
 
-// const openai = new OpenAI({
-//   apiKey: process.env.OPEN_AI_API_KEY,
-// })
+const openai = new OpenAI({
+  apiKey: process.env.OPEN_AI_API_KEY,
+})
 
 // const generateImage = async (prompt, size) => {
 //   const imageSize =
@@ -31,33 +31,33 @@
 //   }
 // }
 
-// const completionIEP = async () => {
-//   const prompt = `determine an IEP for a student trying to get admission to a college. Return response in the following 
-//   JSON parsable format:
-//   {
-//     "goal": "answer",
-//   "IEP": "answer"
-//   }
-// `
-//   try {
-//     const completion = await openai.completions.create({
-//       model: "text-davinci-003",
-//       prompt: prompt,
-//       max_tokens: 1024,
-//       temperature: 1,
-//     })
+const completionIEP = async () => {
+  const prompt = `determine an IEP for a student trying to get admission to a college. Return response in the following 
+  JSON parsable format:
+  {
+    "goal": "answer",
+  "IEP": "answer"
+  }
+`
+  try {
+    const completion = await openai.completions.create({
+      model: "text-davinci-003",
+      prompt: prompt,
+      max_tokens: 1024,
+      temperature: 1,
+    })
 
-//     const parsableJson = completion.choices[0].text
-//     return (jsonResponse = JSON.parse(parsableJson))
-//   } catch (error) {
-//     if (error.completion) {
-//       console.log(error.completion.status)
-//       console.log(error.completion.data)
-//     } else {
-//       console.log(error.message)
-//     }
-//     res.status(400).json({ success: false, error: `Unable to generate IEP` })
-//   }
-// }
+    const parsableJson = completion.choices[0].text
+    return (jsonResponse = JSON.parse(parsableJson))
+  } catch (error) {
+    if (error.completion) {
+      console.log(error.completion.status)
+      console.log(error.completion.data)
+    } else {
+      console.log(error.message)
+    }
+    res.status(400).json({ success: false, error: `Unable to generate IEP` })
+  }
+}
 
-// module.exports = { generateImage, completionIEP }
+module.exports = { completionIEP }
