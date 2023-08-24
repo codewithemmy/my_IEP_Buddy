@@ -1,5 +1,6 @@
 const { OpenAI } = require("openai")
 
+//configure openai
 const openai = new OpenAI({
   apiKey: process.env.OPEN_AI_API_KEY,
 })
@@ -60,4 +61,4 @@ const completionIEP = async () => {
   }
 }
 
-module.exports = { completionIEP }
+module.exports = { generateImage, completionIEP }
